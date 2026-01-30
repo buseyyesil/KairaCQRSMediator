@@ -1,0 +1,35 @@
+﻿@model KairaCQRSMediator.Features.CQRS.Commands.ServiceCommands.UpdateServiceCommand
+@{
+    ViewData["Title"] = "Hizmet Güncelle";
+}
+
+<div class="row">
+    <div class="col-12 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Hizmet Güncelle</h4>
+                <form asp-action="Update" method="post">
+                    <input type="hidden" asp-for="ServiceId" />
+                    <div class="form-group">
+                        <label>Başlık</label>
+                        <input asp-for="Title" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Açıklama</label>
+                        <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Icon</label>
+                        <input asp-for="Icon" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Video URL</label>
+                        <input asp-for="VideoUrl" class="form-control" />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Güncelle</button>
+                    <a asp-action="Index" class="btn btn-light">İptal</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

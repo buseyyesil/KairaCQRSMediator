@@ -1,0 +1,27 @@
+﻿@model KairaCQRSMediator.Features.Mediator.Results.ContactInfoResults.GetContactInfoQueryResult
+
+<div class="contact-info">
+    <h5 class="element-title text-uppercase mb-3">CONTACT US</h5>
+    <div class="mb-2">
+        <strong>Do you have any questions or suggestions?</strong>
+    </div>
+    <div class="mb-2">
+        <a href="mailto:@Model.Email" class="text-decoration-none">@Model.Email</a>
+    </div>
+    <div class="mb-2">
+        <strong>Do you need support? Give us a call.</strong>
+    </div>
+    <div class="mb-3">
+        <a href="tel:@Model.Phone?.Replace(" ", "")" class="text-decoration-none">@Model.Phone</a>
+    </div>
+    <div class="mb-2">
+        <strong>Address:</strong>
+    </div>
+    <div class="mb-3">
+        @Model.Address
+    </div>
+    <div>
+        <strong>Working Hours:</strong><br />
+        @Model.WorkingHours
+    </div>
+</div>

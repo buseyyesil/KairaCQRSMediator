@@ -1,0 +1,83 @@
+using FluentValidation;
+using FluentValidation.AspNetCore;
+using KairaCQRSMediator.DataAccess.Context;
+using KairaCQRSMediator.Features.CQRS.Commands.CategoryHandles;
+using KairaCQRSMediator.Features.CQRS.Handlers.BrandHandlers;
+using KairaCQRSMediator.Features.CQRS.Handlers.CategoryHandles;
+using KairaCQRSMediator.Features.CQRS.Handlers.ServiceHandlers;
+using KairaCQRSMediator.Features.CQRS.Handlers.TestimonialHandlers;
+using KairaCQRSMediator.Repositories;
+using Microsoft.EntityFrameworkCore;
+using System.Reflection;
+
+var builder = WebApplication.CreateBuilder(args);
+
+// Add services to the container.
+builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+
+builder.Services.AddFluentValidationAutoValidation()
+                .AddFluentValidationClientsideAdapters()
+                .AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+
+builder.Services.AddMediatR(config=>
+{
+    config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
+});
+builder.Services.AddScoped<GetCategoryQueryHandler>();
+builder.Services.AddScoped<GetCategoryByIdQueryHandler>();
+builder.Services.AddScoped<CreateCategoryCommandHandler>();
+builder.Services.AddScoped<RemoveCategoryCommandHandler>();
+builder.Services.AddScoped<UpdateCategoryCommandHandler>();
+
+builder.Services.AddScoped<GetServiceQueryHandler>();
+builder.Services.AddScoped<GetServiceByIdQueryHandler>();
+builder.Services.AddScoped<CreateServiceCommandHandler>();
+builder.Services.AddScoped<UpdateServiceCommandHandler>();
+builder.Services.AddScoped<RemoveServiceCommandHandler>();
+
+builder.Services.AddScoped<GetBrandQueryHandler>();
+builder.Services.AddScoped<GetBrandByIdQueryHandler>();
+builder.Services.AddScoped<CreateBrandCommandHandler>();
+builder.Services.AddScoped<UpdateBrandCommandHandler>();
+builder.Services.AddScoped<RemoveBrandCommandHandler>();
+
+builder.Services.AddScoped<GetTestimonialQueryHandler>();
+builder.Services.AddScoped<GetTestimonialByIdQueryHandler>();
+builder.Services.AddScoped<CreateTestimonialCommandHandler>();
+builder.Services.AddScoped<UpdateTestimonialCommandHandler>();
+builder.Services.AddScoped<RemoveTestimonialCommandHandler>();
+
+builder.Services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
+
+builder.Services.AddDbContext<KairaContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("SqlConnection"));
+});
+builder.Services.AddControllersWithViews();
+
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/Home/Error");
+    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseHsts();
+}
+
+app.UseHttpsRedirection();
+app.UseStaticFiles();
+
+app.UseRouting();
+
+
+    app.MapControllerRoute(
+      name: "areas",
+      pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+    );
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.Run();

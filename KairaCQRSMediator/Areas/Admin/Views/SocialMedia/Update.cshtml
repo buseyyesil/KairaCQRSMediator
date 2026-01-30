@@ -1,0 +1,27 @@
+﻿@model KairaCQRSMediator.Features.Mediator.Commands.SocialMediaCommands.UpdateSocialMediaCommand
+@{
+    ViewData["Title"] = "Güncelle";
+}
+
+<div class="card">
+    <div class="card-body">
+        <h4>Sosyal Medya Güncelle</h4>
+        <form asp-action="Update" method="post">
+            <input type="hidden" asp-for="SocialMediaId" />
+            <div class="form-group">
+                <label>Platform</label>
+                <input asp-for="Platform" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>URL</label>
+                <input asp-for="Url" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>İkon</label>
+                <input asp-for="Icon" class="form-control" />
+            </div>
+            <button type="submit" class="btn btn-primary">Güncelle</button>
+            <a asp-action="Index" class="btn btn-light">İptal</a>
+        </form>
+    </div>
+</div>

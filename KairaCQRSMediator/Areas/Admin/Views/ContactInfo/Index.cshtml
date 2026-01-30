@@ -1,0 +1,42 @@
+﻿@model KairaCQRSMediator.Features.Mediator.Results.ContactInfoResults.GetContactInfoQueryResult
+@{
+    ViewData["Title"] = "İletişim Bilgileri";
+}
+
+<div class="page-header">
+    <h3 class="page-title">İletişim Bilgileri</h3>
+</div>
+
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                @if (Model != null)
+                {
+                    <dl class="row">
+                        <dt class="col-sm-3">Telefon:</dt>
+                        <dd class="col-sm-9">@(Model.Phone ?? "Henüz eklenmemiş")</dd>
+
+                        <dt class="col-sm-3">Email:</dt>
+                        <dd class="col-sm-9">@(Model.Email ?? "Henüz eklenmemiş")</dd>
+
+                        <dt class="col-sm-3">Adres:</dt>
+                        <dd class="col-sm-9">@(Model.Address ?? "Henüz eklenmemiş")</dd>
+
+                        <dt class="col-sm-3">Çalışma Saatleri:</dt>
+                        <dd class="col-sm-9">@(Model.WorkingHours ?? "Henüz eklenmemiş")</dd>
+                    </dl>
+
+                    <a asp-action="Update" class="btn btn-primary">Düzenle</a>
+                }
+                else
+                {
+                    <div class="alert alert-info">
+                        <strong>Bilgi:</strong> İletişim bilgileri bulunamadı.
+                    </div>
+                    <a asp-action="Create" class="btn btn-primary">Yeni Ekle</a>
+                }
+            </div>
+        </div>
+    </div>
+</div>

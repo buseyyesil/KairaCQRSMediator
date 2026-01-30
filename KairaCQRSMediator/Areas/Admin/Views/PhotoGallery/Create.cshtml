@@ -1,0 +1,18 @@
+﻿@model KairaCQRSMediator.Features.Mediator.Commands.PhotoGalleryCommands.CreatePhotoGalleryCommand
+@{
+    ViewData["Title"] = "Fotoğraf Ekle";
+}
+
+<div class="card">
+    <div class="card-body">
+        <h4>Yeni Fotoğraf</h4>
+        <form asp-action="Create" method="post">
+            <div class="form-group">
+                <label>Resim URL</label>
+                <input asp-for="ImageUrl" class="form-control" required />
+            </div>
+            <button type="submit" class="btn btn-primary">Kaydet</button>
+            <a asp-action="Index" class="btn btn-light">İptal</a>
+        </form>
+    </div>
+</div>

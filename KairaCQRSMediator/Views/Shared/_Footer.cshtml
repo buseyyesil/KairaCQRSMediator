@@ -1,0 +1,85 @@
+﻿<footer id="footer" class="mt-5">
+    <div class="container">
+        <div class="row d-flex flex-wrap justify-content-between py-5">
+
+       
+            <div class="col-md-3 col-sm-6">
+                <div class="footer-menu footer-menu-001">
+                    <div class="footer-intro mb-4">
+                        <a href="/">
+                            <img src="~/kaira-1.0.0/images/main-logo.png" alt="logo">
+                        </a>
+                    </div>
+                    <p>Kaira Modanın Kalbi.</p>
+                    @await Component.InvokeAsync("SocialMedia")
+                </div>
+            </div>
+
+           
+           
+            <div class="col-md-3 col-sm-6">
+                <div class="footer-menu">
+                    <h5 class="widget-title text-uppercase mb-4">Hızlı Bağlantılar</h5>
+                    <ul class="menu-list list-unstyled text-uppercase border-animation-left fs-6">
+                        <li class="menu-item"><a href="/" class="item-anchor">Ana Sayfa</a></li>
+                        <li class="menu-item"><a href="#" class="item-anchor">Hakkımızda</a></li>
+                        <li class="menu-item"><a href="#" class="item-anchor">Hizmetler</a></li>
+                        <li class="menu-item"><a href="#" class="item-anchor">İletişim</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        
+            <div class="col-md-3 col-sm-6">
+                <div class="footer-menu">
+                    <h5 class="widget-title text-uppercase mb-4">Yardım & Bilgi</h5>
+                    <ul class="menu-list list-unstyled text-uppercase border-animation-left fs-6">
+                        <li class="menu-item"><a href="#" class="item-anchor">Sipariş Takibi</a></li>
+                        <li class="menu-item"><a href="#" class="item-anchor">İade & Değişim</a></li>
+                        <li class="menu-item"><a href="#" class="item-anchor">Kargo & Teslimat</a></li>
+                        <li class="menu-item"><a href="#" class="item-anchor">Bize Ulaşın</a></li>
+                        <li class="menu-item"><a href="#" class="item-anchor">Sıkça Sorulan Sorular</a></li>
+                    </ul>
+                </div>
+            </div>
+
+
+        
+            <div class="col-md-3 col-sm-6">
+                <div class="footer-menu">
+                    @await Component.InvokeAsync("ContactInfo")
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="border-top py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 d-flex flex-wrap">
+                    <div class="shipping">
+                        <span>Kargo Firmalarımız:</span>
+                        <img src="~/kaira-1.0.0/images/arct-icon.png" alt="icon">
+                        <img src="~/kaira-1.0.0/images/dhl-logo.png" alt="icon">
+                    </div>
+                    <div class="payment-option">
+                        <span>Ödeme Seçenekleri:</span>
+                        <img src="~/kaira-1.0.0/images/visa-card.png" alt="card">
+                        <img src="~/kaira-1.0.0/images/paypal-card.png" alt="card">
+                        <img src="~/kaira-1.0.0/images/master-card.png" alt="card">
+                    </div>
+                </div>
+                <div class="col-md-6 text-md-end mt-3 mt-md-0">
+                    <p>
+                        © 2026 Kaira. Tasarım:
+                        <a href="https://templatesjungle.com/" target="_blank">TemplatesJungle</a> |
+                        Dağıtım:
+                        <a href="https://themewagon.com/" target="_blank">ThemeWagon</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</footer>

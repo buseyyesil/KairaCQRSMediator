@@ -1,0 +1,120 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<style>
+    .welcome-banner {
+        background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 50%, #ffecd2 100%);
+        border-radius: 20px;
+        padding: 100px 40px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        margin-bottom: 30px;
+    }
+
+    .gradient-text-1 {
+        font-size: 5rem;
+        font-weight: 900;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 10px;
+        line-height: 1.2;
+    }
+
+    .gradient-text-2 {
+        font-size: 5rem;
+        font-weight: 900;
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 40px;
+        line-height: 1.2;
+    }
+
+    .gradient-btn {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white !important;
+        padding: 18px 50px;
+        border-radius: 50px;
+        font-size: 1.3rem;
+        font-weight: 700;
+        border: none;
+        text-decoration: none;
+        display: inline-block;
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        transition: all 0.3s ease;
+    }
+
+        .gradient-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.6);
+        }
+</style>
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="welcome-banner">
+            <h1 class="gradient-text-1">
+                Kaira Yönetim Paneline
+            </h1>
+            <h2 class="gradient-text-2">
+                Hoş Geldiniz ✨
+            </h2>
+            <a asp-area="" asp-controller="Home" asp-action="Index" target="_blank" class="gradient-btn">
+                Siteye Git
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-xl-4 col-sm-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div>
+                        <h2 class="text-primary mb-2">@ViewBag.CategoryCount</h2>
+                        <h6 class="text-muted">Kategoriler</h6>
+                    </div>
+                    <i class="mdi mdi-folder mdi-48px text-primary"></i>
+                </div>
+                <a asp-controller="Category" asp-action="Index" class="btn btn-primary btn-sm mt-3">Görüntüle</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-4 col-sm-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div>
+                        <h2 class="text-success mb-2">@ViewBag.ProductCount</h2>
+                        <h6 class="text-muted">Ürünler</h6>
+                    </div>
+                    <i class="mdi mdi-package-variant mdi-48px text-success"></i>
+                </div>
+                <a asp-controller="Product" asp-action="Index" class="btn btn-success btn-sm mt-3">Görüntüle</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-4 col-sm-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div>
+                        <h2 class="text-warning mb-2">@ViewBag.ServiceCount</h2>
+                        <h6 class="text-muted">Hizmetler</h6>
+                    </div>
+                    <i class="mdi mdi-wrench mdi-48px text-warning"></i>
+                </div>
+                <a asp-controller="Service" asp-action="Index" class="btn btn-warning btn-sm mt-3">Görüntüle</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+﻿@model KairaCQRSMediator.Features.Mediator.Commands.PhotoGalleryCommands.UpdatePhotoGalleryCommand
+@{
+    ViewData["Title"] = "Fotoğraf Güncelle";
+}
+
+<div class="card">
+    <div class="card-body">
+        <h4>Fotoğraf Güncelle</h4>
+        <form asp-action="Update" method="post">
+            <input type="hidden" asp-for="PhotoGalleryId" />
+            <div class="form-group">
+                <label>Resim URL</label>
+                <input asp-for="ImageUrl" class="form-control" required />
+            </div>
+            <button type="submit" class="btn btn-primary">Güncelle</button>
+            <a asp-action="Index" class="btn btn-light">İptal</a>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+﻿@model KairaCQRSMediator.Features.Mediator.Commands.ContactInfoCommands.CreateContactInfoCommand
+@{
+    ViewData["Title"] = "İletişim Bilgileri Ekle";
+}
+
+<div class="row">
+    <div class="col-12 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">İletişim Bilgileri Ekle</h4>
+                <form asp-action="Create" method="post">
+                    <div class="form-group">
+                        <label>Telefon</label>
+                        <input asp-for="Phone" class="form-control" placeholder="+90 555 123 4567" />
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input asp-for="Email" type="email" class="form-control" placeholder="info@kaira.com" />
+                    </div>
+                    <div class="form-group">
+                        <label>Adres</label>
+                        <textarea asp-for="Address" class="form-control" rows="3" placeholder="Tam adres"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Çalışma Saatleri</label>
+                        <input asp-for="WorkingHours" class="form-control" placeholder="Pzt-Cuma: 09:00-18:00" />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Kaydet</button>
+                    <a asp-action="Index" class="btn btn-light">İptal</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

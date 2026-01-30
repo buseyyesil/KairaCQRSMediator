@@ -1,0 +1,38 @@
+﻿@model KairaCQRSMediator.Features.CQRS.Commands.TestimonialCommands.CreateTestimonialCommand
+@{
+    ViewData["Title"] = "Yorum Ekle";
+}
+
+<div class="row">
+    <div class="col-12 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Yeni Yorum Ekle</h4>
+                <form asp-action="Create" method="post">
+                    <div class="form-group">
+                        <label>Müşteri Adı</label>
+                        <input asp-for="CustomerName" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Başlık</label>
+                        <input asp-for="Title" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Yorum</label>
+                        <textarea asp-for="Comment" class="form-control" rows="4"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Puan (1-5)</label>
+                        <input asp-for="Rating" type="number" min="1" max="5" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Resim URL</label>
+                        <input asp-for="ImageUrl" class="form-control" />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Kaydet</button>
+                    <a asp-action="Index" class="btn btn-light">İptal</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

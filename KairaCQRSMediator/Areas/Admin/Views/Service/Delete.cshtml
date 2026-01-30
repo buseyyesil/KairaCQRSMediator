@@ -1,0 +1,21 @@
+﻿@model KairaCQRSMediator.Features.CQRS.Results.ServiceResults.GetServiceByIdQueryResult
+@{
+    ViewData["Title"] = "Hizmet Sil";
+}
+
+<div class="row">
+    <div class="col-12 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title text-danger">Silmek istediğinize emin misiniz?</h4>
+                <p><strong>Başlık:</strong> @Model.Title</p>
+                <p><strong>Açıklama:</strong> @Model.Description</p>
+                <form asp-action="Delete" method="post">
+                    <input type="hidden" name="id" value="@Model.ServiceId" />
+                    <button type="submit" class="btn btn-danger">Sil</button>
+                    <a asp-action="Index" class="btn btn-light">İptal</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

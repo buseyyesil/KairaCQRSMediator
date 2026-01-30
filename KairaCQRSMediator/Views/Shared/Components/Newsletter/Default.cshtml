@@ -1,0 +1,79 @@
+﻿<section id="subscribe" class="bg-sand padding-large">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="subscribe-content col-lg-8">
+                <div class="subscribe-header">
+                    <h2 class="section-title text-center">Get updates by subscribe our weekly newsletter</h2>
+                </div>
+                <form id="subscribeForm" asp-area="" asp-controller="Subscribe" asp-action="Subscribe" method="post" class="subscribe-form">
+                    <div class="input-group flex-wrap justify-content-center">
+                        <input class="form-control btn-rounded-none" type="email" name="email" placeholder="Enter your email address" required>
+                        <button class="btn btn-dark btn-rounded-none btn-subscribe px-4" type="submit">
+                            <span>Subscribe</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.getElementById('subscribeForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const form = this;
+        const formData = new FormData(form);
+        const button = form.querySelector('button[type="submit"]');
+        const buttonText = button.querySelector('span');
+        const originalText = buttonText.textContent;
+
+        button.disabled = true;
+        buttonText.textContent = 'Gönderiliyor...';
+
+        fetch(form.action, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+ 
+            button.disabled = false;
+            buttonText.textContent = originalText;
+
+            if(data.success) {
+      
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Başarılı!',
+                    text: data.message,
+                    confirmButtonText: 'Tamam',
+                    confirmButtonColor: '#28a745'
+                });
+                form.reset();
+            } else {
+           
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Hata!',
+                    text: data.message,
+                    confirmButtonText: 'Tamam',
+                    confirmButtonColor: '#dc3545'
+                });
+            }
+        })
+        .catch(error => {
+     
+            button.disabled = false;
+            buttonText.textContent = originalText;
+
+            Swal.fire({
+                icon: 'error',
+                title: 'Hata!',
+                text: 'Bir hata oluştu! Lütfen tekrar deneyin.',
+                confirmButtonText: 'Tamam',
+                confirmButtonColor: '#dc3545'
+            });
+        });
+    });
+</script>

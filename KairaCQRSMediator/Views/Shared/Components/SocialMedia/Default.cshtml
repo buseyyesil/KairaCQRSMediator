@@ -1,0 +1,14 @@
+﻿@model List<KairaCQRSMediator.Features.Mediator.Results.SocialMediaResults.GetSocialMediaQueryResult>
+
+<div class="social-links">
+    <ul class="list-unstyled d-flex gap-3">
+        @foreach (var social in Model)
+        {
+            <li class="social">
+                <a href="@social.Url" target="_blank" title="@social.Platform">
+                    <i class="@social.Icon"></i>
+                </a>
+            </li>
+        }
+    </ul>
+</div>

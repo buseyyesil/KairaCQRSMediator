@@ -1,0 +1,35 @@
+﻿@model KairaCQRSMediator.Features.CQRS.Commands.ServiceCommands.CreateServiceCommand
+@{
+    ViewData["Title"] = "Hizmet Ekle";
+}
+
+<div class="row">
+    <div class="col-12 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Yeni Hizmet Ekle</h4>
+                <form asp-action="Create" method="post">
+                    <div class="form-group">
+                        <label>Başlık</label>
+                        <input asp-for="Title" class="form-control" placeholder="Book An Appointment" />
+                    </div>
+                    <div class="form-group">
+                        <label>Açıklama</label>
+                        <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Icon (SVG ID)</label>
+                        <input asp-for="Icon" class="form-control" placeholder="calendar" />
+                        <small class="text-muted">SVG sprite'daki id: calendar, shopping-bag, gift, arrow-cycle</small>
+                    </div>
+                    <div class="form-group">
+                        <label>Video URL (Opsiyonel)</label>
+                        <input asp-for="VideoUrl" class="form-control" />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Kaydet</button>
+                    <a asp-action="Index" class="btn btn-light">İptal</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

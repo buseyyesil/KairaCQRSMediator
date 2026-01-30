@@ -1,0 +1,31 @@
+﻿@model KairaCQRSMediator.Features.CQRS.Commands.BrandCommands.UpdateBrandCommand
+@{
+    ViewData["Title"] = "Marka Güncelle";
+}
+
+<div class="row">
+    <div class="col-12 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Marka Güncelle</h4>
+                <form asp-action="Update" method="post">
+                    <input type="hidden" asp-for="BrandId" />
+                    <div class="form-group">
+                        <label>Marka Adı</label>
+                        <input asp-for="BrandName" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Logo URL</label>
+                        <input asp-for="LogoUrl" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Sıra</label>
+                        <input asp-for="DisplayOrder" type="number" class="form-control" />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Güncelle</button>
+                    <a asp-action="Index" class="btn btn-light">İptal</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

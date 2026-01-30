@@ -1,0 +1,33 @@
+﻿@model List<KairaCQRSMediator.Features.Mediator.Results.PhotoGalleryResults.GetPhotoGalleryQueryResult>
+@{
+    ViewData["Title"] = "Galeri";
+}
+
+<div class="page-header">
+    <h3 class="page-title">Galeri</h3>
+    <a asp-action="Create" class="btn btn-primary">Yeni Ekle</a>
+</div>
+
+<div class="row">
+    @if (Model != null && Model.Any())
+    {
+        @foreach (var item in Model)
+        {
+            <div class="col-md-2 mb-3">
+                <div class="card">
+                    <img src="@item.ImageUrl" class="card-img-top" style="height:150px; object-fit:cover;" />
+                    <div class="card-body p-2 text-center">
+                        <a asp-action="Update" asp-route-id="@item.PhotoGalleryId" class="btn btn-sm btn-warning">✏️</a>
+                        <a asp-action="Delete" asp-route-id="@item.PhotoGalleryId" class="btn btn-sm btn-danger">🗑️</a>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="col-12">
+            <p class="text-center">Fotoğraf yok</p>
+        </div>
+    }
+</div>

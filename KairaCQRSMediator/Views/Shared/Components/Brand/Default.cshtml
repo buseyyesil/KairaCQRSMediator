@@ -1,0 +1,27 @@
+﻿@model List<KairaCQRSMediator.Features.CQRS.Results.BrandResults.GetBrandQueryResult>
+
+<section class="logo-bar py-5 my-5">
+    <div class="container">
+        <div class="row">
+            <div class="logo-content d-flex flex-wrap justify-content-between">
+                @if (Model != null && Model.Any())
+                {
+                    @foreach (var brand in Model.OrderBy(x => x.DisplayOrder))
+                    {
+                        <img src="@brand.LogoUrl" alt="@brand.BrandName" class="logo-image img-fluid" style="opacity: 0.7;">
+                    }
+                }
+                else
+                {
+                    
+                    <img src="~/kaira-1.0.0/images/logo1.png" alt="logo" class="logo-image img-fluid">
+                    <img src="~/kaira-1.0.0/images/logo2.png" alt="logo" class="logo-image img-fluid">
+                    <img src="~/kaira-1.0.0/images/logo3.png" alt="logo" class="logo-image img-fluid">
+                    <img src="~/kaira-1.0.0/images/logo4.png" alt="logo" class="logo-image img-fluid">
+                    <img src="~/kaira-1.0.0/images/logo5.png" alt="logo" class="logo-image img-fluid">
+                }
+            </div>
+        </div>
+    </div>
+</section>
+

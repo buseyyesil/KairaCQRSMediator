@@ -1,0 +1,16 @@
+﻿using AutoMapper;
+using KairaCQRSMediator.DataAccess.Entities;
+using KairaCQRSMediator.Features.Mediator.Command.ProductsCommands;
+using KairaCQRSMediator.Repositories;
+using MediatR;
+
+namespace KairaCQRSMediator.Features.Mediator.Handlers.ProductHandlers
+{
+    public class RemoveProductCommandHandler(IRepository<Product> _repository) : IRequestHandler<RemoveProductCommand>
+    {
+        public async Task Handle(RemoveProductCommand request, CancellationToken cancellationToken)
+        {
+            await _repository.DeleteAsync(request.Id);
+        }
+    }
+}
