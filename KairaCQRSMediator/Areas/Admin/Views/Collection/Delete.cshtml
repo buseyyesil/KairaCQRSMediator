@@ -1,0 +1,32 @@
+﻿@model KairaCQRSMediator.Features.Mediator.Results.CollectionResults.GetCollectionByIdQueryResult
+@{
+    ViewData["Title"] = "Koleksiyon Sil";
+}
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title text-danger">Koleksiyon Sil</h4>
+        <div class="alert alert-warning">
+            <strong>Uyarı!</strong> Bu koleksiyonu silmek istediğinizden emin misiniz?
+        </div>
+
+        <dl class="row">
+            <dt class="col-sm-3">Başlık</dt>
+            <dd class="col-sm-9">@Model.Title</dd>
+
+            <dt class="col-sm-3">Açıklama</dt>
+            <dd class="col-sm-9">@Model.Description</dd>
+
+            <dt class="col-sm-3">Resim</dt>
+            <dd class="col-sm-9">
+                <img src="@Model.ImageUrl" alt="@Model.Title" style="width: 200px; height: 200px; object-fit: cover;">
+            </dd>
+        </dl>
+
+        <form asp-action="Delete" method="post">
+            <input type="hidden" asp-for="CollectionId" />
+            <button type="submit" class="btn btn-danger">Sil</button>
+            <a asp-action="Index" class="btn btn-light">İptal</a>
+        </form>
+    </div>
+</div>

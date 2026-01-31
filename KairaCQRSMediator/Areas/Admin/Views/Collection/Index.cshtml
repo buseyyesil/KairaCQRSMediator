@@ -1,0 +1,53 @@
+﻿@model List<KairaCQRSMediator.Features.Mediator.Results.CollectionResults.GetCollectionQueryResult>
+@{
+    ViewData["Title"] = "Koleksiyonlar";
+}
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Koleksiyonlar</h4>
+        <a asp-action="Create" class="btn btn-primary mb-3">
+            <i class="mdi mdi-plus"></i> Yeni Koleksiyon
+        </a>
+
+        @if (Model != null && Model.Any())
+        {
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Resim</th>
+                            <th>Başlık</th>
+                            <th>Açıklama</th>
+                            <th>İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <img src="@item.ImageUrl" alt="@item.Title" style="width: 100px; height: 100px; object-fit: cover;">
+                                </td>
+                                <td>@item.Title</td>
+                                <td>@(item.Description.Length > 100 ? item.Description.Substring(0, 100) + "..." : item.Description)</td>
+                                <td>
+                                    <a asp-action="Update" asp-route-id="@item.CollectionId" class="btn btn-warning btn-sm">
+                                        <i class="mdi mdi-pencil"></i> Düzenle
+                                    </a>
+                                    <a asp-action="Delete" asp-route-id="@item.CollectionId" class="btn btn-danger btn-sm">
+                                        <i class="mdi mdi-delete"></i> Sil
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-info">Henüz koleksiyon eklenmemiş.</div>
+        }
+    </div>
+</div>
