@@ -1,4 +1,4 @@
-﻿using KairaCQRSMediator.Features.Mediator.Queries.ProductsQueries;
+﻿using KairaCQRSMediator.Features.Mediator.Queries.NewarrivalproductQueries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,12 +13,10 @@ namespace KairaCQRSMediator.ViewComponents
             _mediator = mediator;
         }
 
-        public async Task<IViewComponentResult> InvokeAsync(int count = 10)
+        public async Task<IViewComponentResult> InvokeAsync()
         {
-            var products = await _mediator.Send(new GetProductsQuery());
-          
-            var newProducts = products.OrderByDescending(x => x.ProductId).Take(count).ToList();
-            return View(newProducts);
+            var products = await _mediator.Send(new GetNewarrivalproductQuery());
+            return View(products);
         }
     }
 }

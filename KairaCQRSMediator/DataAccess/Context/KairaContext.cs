@@ -20,6 +20,8 @@ namespace KairaCQRSMediator.DataAccess.Context
         public DbSet<Brand> Brands { get; set; }
         public DbSet<ContactInfo> ContactInfos { get; set; }
         public DbSet<Collection> Collections { get; set; }
+        public DbSet<Newarrivalproduct> NewArrivalProducts { get; set; }
+        public DbSet<RelatedProduct> RelatedProducts { get; set; }
 
 
     }
